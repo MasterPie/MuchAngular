@@ -1,0 +1,82 @@
+﻿<div class="sub-header row">
+    <div class="large-12 columns">
+        <div class="row" >
+            <div class="small-2 large-2 columns">
+                <p class="key">Items</p>
+                <p class="value" ng-show="HighlightedProject">{{Works.length + 1}}</p>
+            </div>
+            <div class="small-10 large-10 columns" ng-show="MostRecentNews">
+                <p class="key">Recent News</p>
+                <p class="value"><a ng-href="/#/Work/{{MostRecentNews.uri}}">{{MostRecentNews.title}}</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="medium-12 columns">
+        <div id="container">
+            <div class="row">
+                <div class="small-12 medium-12 large-6 columns item">
+                    <div class="workItemWrapper">
+                            <div class="workItem">
+                                <span class="label label-{{HighlightedProject.itemType}}">{{HighlightedProject.itemType}}</span>
+                                <span class="tags"><a ng-repeat="tag in HighlightedProject.tags" ng-href="/#/Work/Tag/{{tag}}">{{tag}}</a> </span>
+                                <a ng-href="/#/Work/{{HighlightedProject.uri}}">
+                                    <h2>{{HighlightedProject.title}}</h2>
+                                    <h3>{{HighlightedProject.subTitle}}</h3>
+                                    <div class="workItem-summary">
+                                        <img ng-src="{{HighlightedProject.heroImage}}" />
+                                        <p>{{HighlightedProject.caption}}</p>
+                                    </div>
+                                </a>
+                            </div>
+                    </div>
+                </div>
+                <div class="small-12 medium-12 large-6 columns item">
+                    <div class="row">
+                        <div class="medium-6 columns" ng-repeat="linkItem in Works | filter : {itemType : '!Idea'}">
+                            <div class="workItemWrapper">
+                                    <div class="workItem">
+                                        <span class="label label-{{linkItem.itemType}}">{{linkItem.itemType}}</span>
+                                        <span class="tags"><a ng-repeat="tag in linkItem.tags" ng-href="/#/Work/Tag/{{tag}}">{{tag}}</a> </span>
+                                        <a ng-href="/#/Work/{{linkItem.uri}}">
+                                            <h2>{{linkItem.title}}</h2>
+                                            <h3>{{linkItem.subTitle}}</h3>
+                                            <div class="workItem-summary">
+                                                <img ng-src="{{linkItem.heroImage}}" ng-show="linkItem.heroImage" />
+                                                <p ng-show="linkItem.heroImage">{{linkItem.caption}}</p>
+                                                <p class="no-image" ng-hide="linkItem.heroImage">{{linkItem.caption}}</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="small-12 medium-12 large-6 columns item">
+                    <div class="row">
+                        <div class="medium-6 columns" ng-repeat="linkItem in Works | filter : {itemType : 'Idea'}">
+                            <div class="workItemWrapper">
+
+                                <div class="workItem">
+                                    <span class="label label-{{linkItem.itemType}}">{{linkItem.itemType}}</span>
+                                    <span class="tags"><a ng-repeat="tag in linkItem.tags" ng-href="/#/Work/Tag/{{tag}}">{{tag}}</a> </span>
+                                    <a ng-href="/#/Work/{{linkItem.uri}}">
+                                        <h2>{{linkItem.title}}</h2>
+                                        <h3>{{linkItem.subTitle}}</h3>
+                                        <div class="workItem-summary">
+                                            <img ng-src="{{linkItem.heroImage}}" />
+                                            <p>{{linkItem.caption}}</p>
+                                        </div>
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
