@@ -1,141 +1,125 @@
-﻿<!doctype html>
-<html class="no-js" lang="en">
-  <head>
+﻿<!DOCTYPE html>
+<html class="no-js" lang="en" data-framework="angularjs">
+<head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Foundation | Welcome</title>
-    <link rel="stylesheet" href="css/foundation.css" />
-	<link rel="stylesheet" href="css/styles.css" />
-    <script src="js/vendor/modernizr.js"></script>
-  </head>
-  <body>
-    
-<div class="off-canvas-wrap" data-offcanvas>
+    <title>My Portfolio Site</title>
+    <link rel="stylesheet" href="/css/foundation.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <script src="/js/vendor/modernizr.js"></script>
+</head>
+<body>
 
-    <main class="inner-wrap">
-        <nav class="tab-bar show-for-small">
-            <section class="left-small">
-                <a class="left-off-canvas-toggle menu-icon"><span></span></a>
-            </section>
-
-            <section class="middle tab-bar-section">
-                <h1 class="title">My Site</h1>
-            </section>
-        </nav>
-
-        <header class="row" ng-controller="MenuController">
-            <div class="medium-12 columns">
-                <div class="row">
-                    <div class="small-3 medium-4 columns">
-                        <h1><a href="/">My Site</a></h1>
-                    </div>
-
-                    <div class="small-5 medium-6 columns">
-                        <nav>
-                            <ul class="inline-list">
-                                <li><a ng-class="getMenuLinkClass('/Work')" href="/">Work</a></li>
-                                <li><a ng-class="getMenuLinkClass('/About')" href="/#About">About Me</a></li>
-                            </ul>
-
-                        </nav>
-                    </div>
-
-                    <div class="small-4 medium-2 columns">
-                        <nav class="right">
-                            <ul class="inline-list">
-                                <li>
-                                    <a href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="dropdown">Contact</a>
-                                    <ul id="drop1" data-dropdown-content class="f-dropdown" aria-hidden="true" tabindex="-1">
-                                        <li>
-                                                                                        <span><a ng-show="emailAddress" ng-href="mailto:{{emailAddress}}">Send email</a></span>
-                                        </li>
-                                    </ul>
-                                </li><!--<a href="http://www.contactify.com/01eea">Contact</a>-->
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-
-            <div class="header-end row">
+    <div class="off-canvas-wrap" data-offcanvas>
+        <main class="inner-wrap">
+            <nav class="tab-bar show-for-small">
+                <section class="left-small">
+                    <a class="left-off-canvas-toggle menu-icon"><span></span></a>
+                </section>
+                <section class="middle tab-bar-section">
+                    <h1 class="title">My Site</h1>
+                </section>
+            </nav>
+            <header class="row" ng-controller="MenuController">
                 <div class="medium-12 columns">
-                    <hr />
-                </div>
-            </div>
-        </header>
-
-        <div class="row">
-            <div class="medium-2 columns hide-for-small">
-               
-                <div class="row">
-
-                </div>
-            </div>
-            <div class="medium-10 columns main">
-                <ng-view ng-cloak></ng-view>
-            </div>
-        </div>
-
-        <footer class="sub-header row">
-            <hr />
-
-            <div class="small-2 large-2 columns">
-
-            </div>
-
-            <div class="large-10 columns">
-                <div class="row">
-                    <div class="large-9 columns">
-                        <ul class="inline-list">
-                            <li><a href="#">A footer link</a></li>
-                        </ul>
-                    </div>
-                    <div class="large-3 columns">
-                        <ul class="inline-list">
-                            <li>&copy Firstname Lastname 2014</li>
-                        </ul>
+                    <div class="row">
+                        <div class="small-3 medium-4 columns">
+                            <h1><a href="/">My Site</a></h1>
+                        </div>
+                        <div class="small-5 medium-6 columns">
+                            <nav>
+                                <ul class="inline-list">
+                                    <li><a ng-class="getMenuLinkClass('/Work')" href="/">Work</a></li>
+                                    <li><a ng-class="getMenuLinkClass('/About')" href="/#About">About Me</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="small-4 medium-2 columns">
+                            <nav class="right">
+                                <ul class="inline-list">
+                                    <li>
+                                        <a href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="dropdown">Contact</a>
+                                        <ul id="drop1" data-dropdown-content class="f-dropdown" aria-hidden="true" tabindex="-1">
+                                            <li>
+                                                <span><a ng-show="emailAddress" ng-href="mailto:{{emailAddress}}">Send email</a></span>
+                                            </li>
+                                        </ul>
+                                    </li><!--<a href="http://www.contactify.com/01eea">Contact</a>-->
+                                </ul>
+                            </nav>
+                        </div>
                     </div>
                 </div>
+                <div class="header-end row">
+                    <div class="medium-12 columns">
+                        <hr />
+                    </div>
+                </div>
+            </header>
+            <div class="row">
+                <div class="medium-2 columns hide-for-small" ng-init="hello='world'">
+
+                    <div class="row">
+                        <h2>{{hello}}</h2>
+                    </div>
+                </div>
+                <div class="medium-10 columns main">
+                    <ng-view ng-cloak></ng-view>
+                </div>
             </div>
-        </footer>
-    </main>
-</div>
-    
-    <script src="js/vendor/jquery.js"></script>
-    <script src="js/foundation.min.js"></script>
-	<script src="js/angular/angular.js"></script>
-	<script src="js/angular/angular-animate.js"></script>
-	<script src="js/angular/angular-cookies.js"></script>
-	<script src="js/angular/angular-route.js"></script>
-	<script src="js/angular/angular-sanitize.js"></script>
-	<script src="js/angular/angular-resource.js"></script>
+            <footer class="sub-header row">
+                <hr />
+                <div class="small-2 large-2 columns">
+                </div>
+                <div class="large-10 columns">
+                    <div class="row">
+                        <div class="large-9 columns">
+                            <ul class="inline-list">
+                                <li><a href="#">A footer link</a></li>
+                            </ul>
+                        </div>
+                        <div class="large-3 columns">
+                            <ul class="inline-list">
+                                <li>&copy Firstname Lastname 2014</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </main>
+    </div>
 
-	<script src="js/app.js"></script>
+    <script src="/js/vendor/jquery-1.10.2.js"></script>
+    <script src="/js/angular/angular.js"></script>
+    <script src="/js/angular/angular-animate.js"></script>
+    <script src="/js/angular/angular-cookies.js"></script>
+    <script src="/js/angular/angular-route.js"></script>
+    <script src="/js/angular/angular-sanitize.js"></script>
+    <script src="/js/angular/angular-resource.js"></script>
+    <script src="/js/app.js"></script>
 
-	
-	<script src="js/foundation/foundation.js"></script>
-	<script src="js/foundation/foundation.abide.js"></script>
-	<script src="js/foundation/foundation.accordion.js"></script>
-	<script src="js/foundation/foundation.alert.js"></script>
-	<script src="js/foundation/foundation.clearing.js"></script>
-	<script src="js/foundation/foundation.dropdown.js"></script>
-	<script src="js/foundation/foundation.equalizer.js"></script>
-	<script src="js/foundation/foundation.interchange.js"></script>
-	<script src="js/foundation/foundation.joyride.js"></script>
-	<script src="js/foundation/foundation.magellan.js"></script>
-	<script src="js/foundation/foundation.offcanvas.js"></script>
-	<script src="js/foundation/foundation.orbit.js"></script>
-	<script src="js/foundation/foundation.reveal.js"></script>
-	<script src="js/foundation/foundation.slider.js"></script>
-	<script src="js/foundation/foundation.tab.js"></script>
-	<script src="js/foundation/foundation.tooltip.js"></script>
-	<script src="js/foundation/foundation.topbar.js"></script>
+    <script src="/js/foundation/foundation.js"></script>
+    <script src="/js/foundation/foundation.abide.js"></script>
+    <script src="/js/foundation/foundation.accordion.js"></script>
+    <script src="/js/foundation/foundation.alert.js"></script>
+    <script src="/js/foundation/foundation.clearing.js"></script>
+    <script src="/js/foundation/foundation.dropdown.js"></script>
+    <script src="/js/foundation/foundation.equalizer.js"></script>
+    <script src="/js/foundation/foundation.interchange.js"></script>
+    <script src="/js/foundation/foundation.joyride.js"></script>
+    <script src="/js/foundation/foundation.magellan.js"></script>
+    <script src="/js/foundation/foundation.offcanvas.js"></script>
+    <script src="/js/foundation/foundation.orbit.js"></script>
+    <script src="/js/foundation/foundation.reveal.js"></script>
+    <script src="/js/foundation/foundation.slider.js"></script>
+    <script src="/js/foundation/foundation.tab.js"></script>
+    <script src="/js/foundation/foundation.tooltip.js"></script>
+    <script src="/js/foundation/foundation.topbar.js"></script>
 
-	
     <script>
-      $(document).foundation();
-	  
-	  app.start();
+        $(document).foundation();
+
+        app.start();
     </script>
-  </body>
+</body>
 </html>

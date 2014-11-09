@@ -1,14 +1,8 @@
 ﻿/*
-1. Functions in variables
-2. JSON
-3. Classes JSON prototype
-4. 
-*/
-
-/*
  * Angular App Bootstrap
  */
 "use strict";
+/*
 var AngularApp = (function () {
 	function AngularApp(name) {
 	
@@ -23,7 +17,7 @@ var AngularApp = (function () {
 		this._app.config([
 			"$routeProvider",
 			function ($routeProvider) {
-				$routeProvider.otherwise({
+			    $routeProvider.otherwise({
 					redirectTo: "/"
 				});
 			}
@@ -54,6 +48,8 @@ var AngularApp = (function () {
 		this._app.config(function ($routeProvider) {
 			$routeProvider.when(path, { controller: controllerName, templateUrl: "app/partial/" + partial });
 		});
+
+//		console.log("Registered: " + controllerName + " for path: " + path);
 	};
 
 	AngularApp.prototype.registerService = function (name, serviceConstructor) {
@@ -62,66 +58,97 @@ var AngularApp = (function () {
 	AngularApp.$inject = ['ngRoute'];
 	return AngularApp;
 })();
+*/
+
+var Mhci;
+(function (Mhci) {
+    "use strict";
+    var Module = (function () {
+        function Module(name) {
+            this._app = angular.module(name, [
+                "ngAnimate",
+                "ngRoute",
+                "ngSanitize",
+                "ngResource"
+            ]);
+
+            this._app.config([
+                "$routeProvider",
+                function ($routeProvider) {
+                    $routeProvider.otherwise({
+                        redirectTo: "/"
+                    });
+                }
+            ]);
+
+            this._app.run([
+                "$route", function ($route) {
+                    // Include $route to kick start the router.
+                }
+            ]);
+        }
+        Module.prototype.start = function () {
+            var _this = this;
+            $(document).ready(function () {
+                console.log("booting " + _this._app.name);
+                angular.bootstrap(document, [_this._app.name]);
+            });
+        };
+
+        Module.prototype.registerControllerFactory = function (controllerName, controllerConstructor) {
+            this._app.controller(controllerName, controllerConstructor);
+        };
+
+        Module.prototype.registerController = function (path, partial, controllerConstructor) {
+            var controllerName = path + partial;
+
+            this.registerControllerFactory(controllerName, controllerConstructor);
+            this._app.config(function ($routeProvider) {
+                $routeProvider.when(path, { controller: controllerName, templateUrl: "app/partial/" + partial });
+            });
+        };
+
+        Module.prototype.registerService = function (name, serviceConstructor) {
+            this._app.service(name, serviceConstructor);
+        };
+        Module.$inject = ['ngRoute'];
+        return Module;
+    })();
+    Mhci.App = Module;
+})(Mhci || (Mhci = {}));
+
 //This creates new instance of the angular app called "portfolio"
-var app = new AngularApp('portfolio'); 
-
-/*
- * DataService
- */
-var JSONFileDataService = (function () {
-	function JSONFileDataService($q, $http) {
-		this.$q = $q;
-		this.$http = $http;
-		this.$inject = ['http'];
-	}
-
-	//Gets list of portfolio pieces
-	JSONFileDataService.prototype.getPortfolioPieces = function () {
-		return this.$http.get('data/index.json');
-	};
-
-	//Gets details for a single portfolio piece
-	JSONFileDataService.prototype.getPortfolioDetails = function (id) {
-		return this.$http.get('data/' + id + '.json');
-	};
-	
-	return JSONFileDataService;
-})();
-//Registers data service
-app.registerService("dataService", JSONFileDataService);
-
+var app = new Mhci.App('portfolio');
 
 /*
  * Portfolio Index Controller
  */
-var PortfolioIndexController = (function () {
+//var PortfolioIndexController = (function () {
 	function PortfolioIndexController($scope, $sce, dataService) {
 		this.$inject = ['dataService'];
-	
+		alert("I got called!");
 		$scope['trustSrc'] = function (src) {
 			return $sce.trustAsResourceUrl(src);
 		};
 		
 		//A function in data service that returns a list of portfolio pieces
-		dataService.getPortfolioPieces().then(function (data) {
-			var works = data;
-			
-			$scope['Works'] = works;
-		});
+		//dataService.getPortfolioPieces().then(function (data) {
+		//	var works = data;
+		//	alert("I GOT CALLLED TOO!");
+		//	$scope['Works'] = works;
+		//});
 		
 	}
 	
-	return PortfolioIndexController;
-})();
+//	return PortfolioIndexController;
+//})();
 //Register controller
-app.registerController("/", "/app/partial/Home/Home.html", PortfolioIndexController);
-
-
+app.registerController("/", "Home/Home.html", PortfolioIndexController);
 
 /*
  * Portfolio Detail Controller
  */
-var PortfolioDetailController = (function () {
+//var PortfolioDetailController = (function () {
 	function PortfolioDetailController($scope, $sce, $routeParams, dataService) {
 		this.$routeParams = $routeParams;
 		this.dataService = dataService;
@@ -143,17 +170,24 @@ var PortfolioDetailController = (function () {
 		};
 		//
 	}
-	return PortfolioDetailController;
-})();
+//	return PortfolioDetailController;
+//})();
 //Register controller
-app.registerController("/Portfolio/:id", "/app/partial/Home/WorkDetail.html", PortfolioDetailController);
+app.registerController("/Portfolio/:id", "Home/WorkDetail.html", PortfolioDetailController);
 
+//var AboutController = (function () {
+    function AboutController($scope) {
 
+    }
+//    return AboutController;
+//})();
+
+app.registerController("/About", "Home/About.html", AboutController);
 
 /*
  * Menu Controller
  */
-var MenuController = (function () {
+//var MenuController = (function () {
 	function MenuController($scope, $location) {
 		this.$inject = ['$location'];
 		
@@ -169,13 +203,44 @@ var MenuController = (function () {
 		};
 		
 	}
-	return MenuController;
-})();
+//	return MenuController;
+//})();
 //Registers controller
 app.registerControllerFactory("MenuController", MenuController);
 
 
+//var MainController = (function () {
+    function MainController($scope) {
 
+    }
+//    return MainController;
+//})();
 
+app.registerControllerFactory("MainController", MainController);
 
  
+/*
+ * DataService
+ */
+//var JSONFileDataService = (function () {
+    function JSONFileDataService($q, $http) {
+        this.$q = $q;
+        this.$http = $http;
+        this.$inject = ['http'];
+    }
+
+    //Gets list of portfolio pieces
+    JSONFileDataService.prototype.getPortfolioPieces = function () {
+        return this.$http.get('data/index.json');
+    };
+
+    //Gets details for a single portfolio piece
+    JSONFileDataService.prototype.getPortfolioDetails = function (id) {
+        return this.$http.get('data/' + id + '.json');
+    };
+
+//    return JSONFileDataService;
+//})();
+//Registers data service
+app.registerService("dataService", JSONFileDataService);
+
