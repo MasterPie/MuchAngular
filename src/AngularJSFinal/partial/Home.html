@@ -1,0 +1,15 @@
+﻿<div class="row">
+    <div class="medium-12 columns">
+        <div id="container">
+            <div class="row">
+                <div class="medium-4 columns" ng-repeat="linkItem in Works | filter : {Done : '!No'}">
+                    <!--<span class="tags"><a ng-repeat="tag in linkItem.tags" ng-href="/#/Work/Tag/{{tag}}">{{tag}}</a> </span>-->
+                    <a ng-href="/#/Portfolio/{{linkItem.URI}}">
+                        <h2>{{linkItem.Title}}</h2>
+                        <img ng-src="{{linkItem.IndexImage}}" ng-show="linkItem.IndexImage" />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

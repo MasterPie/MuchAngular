@@ -7,20 +7,21 @@ a{
 	a:hover{
 		color: #F00;}
 
-
 header{
 
 }
+    header nav li{
+        margin-top: 2em;
+    }
 	.header-end{
         height: 5em;}
         .header-end hr{
             border: none;
-            border:solid 1px #666;
-            margin: 0;
-            width: 103.5%;
-            margin-left: -1em;
-            margin-top: 1em;
+            border: solid #ccc 1px;
             }
+        #tagLine {
+            
+        }
 
 	h1{
 		

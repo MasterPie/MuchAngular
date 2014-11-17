@@ -2,64 +2,6 @@
  * Angular App Bootstrap
  */
 "use strict";
-/*
-var AngularApp = (function () {
-	function AngularApp(name) {
-	
-		//External modules needed for the app
-		this._app = angular.module(name, [
-			"ngAnimate",
-			"ngRoute",
-			"ngSanitize",
-			"ngResource"
-		]);
-
-		this._app.config([
-			"$routeProvider",
-			function ($routeProvider) {
-			    $routeProvider.otherwise({
-					redirectTo: "/"
-				});
-			}
-		]);
-
-		this._app.run([
-			"$route", function ($route) {
-				// Include $route to kick start the router.
-			}
-		]);
-	}
-	AngularApp.prototype.start = function () {
-		var _this = this;
-		$(document).ready(function () {
-			console.log("booting " + _this._app.name);
-			angular.module(document, [_this._app.name]);
-		});
-	};
-
-	AngularApp.prototype.registerControllerFactory = function (controllerName, controllerConstructor) {
-		this._app.controller(controllerName, controllerConstructor);
-	};
-
-	AngularApp.prototype.registerController = function (path, partial, controllerConstructor) {
-		var controllerName = path + partial;
-
-		this.registerControllerFactory(controllerName, controllerConstructor);
-		this._app.config(function ($routeProvider) {
-			$routeProvider.when(path, { controller: controllerName, templateUrl: "app/partial/" + partial });
-		});
-
-//		console.log("Registered: " + controllerName + " for path: " + path);
-	};
-
-	AngularApp.prototype.registerService = function (name, serviceConstructor) {
-		this._app.service(name, serviceConstructor);
-	};
-	AngularApp.$inject = ['ngRoute'];
-	return AngularApp;
-})();
-*/
-
 var Mhci;
 (function (Mhci) {
     "use strict";
@@ -104,7 +46,7 @@ var Mhci;
 
             this.registerControllerFactory(controllerName, controllerConstructor);
             this._app.config(function ($routeProvider) {
-                $routeProvider.when(path, { controller: controllerName, templateUrl: "app/partial/" + partial });
+                $routeProvider.when(path, { controller: controllerName, templateUrl: "partial/" + partial });
             });
         };
 
@@ -126,24 +68,23 @@ var app = new Mhci.App('portfolio');
 //var PortfolioIndexController = (function () {
 	function PortfolioIndexController($scope, $sce, dataService) {
 		this.$inject = ['dataService'];
-		alert("I got called!");
+		
 		$scope['trustSrc'] = function (src) {
 			return $sce.trustAsResourceUrl(src);
 		};
 		
 		//A function in data service that returns a list of portfolio pieces
-		//dataService.getPortfolioPieces().then(function (data) {
-		//	var works = data;
-		//	alert("I GOT CALLLED TOO!");
-		//	$scope['Works'] = works;
-		//});
+		dataService.getPortfolioPieces().then(function (request) {
+		    var works = request.data.Works;
+			$scope['Works'] = works;
+		});
 		
 	}
 	
 //	return PortfolioIndexController;
 //})();
 //Register controller
-app.registerController("/", "Home/Home.html", PortfolioIndexController);
+app.registerController("/", "Home.html", PortfolioIndexController);
 
 /*
  * Portfolio Detail Controller
@@ -155,7 +96,7 @@ app.registerController("/", "Home/Home.html", PortfolioIndexController);
 		this.$inject = ['ngSanitize', '$routeParams', 'dataService'];
 		
 		var workId = $routeParams['id'];
-
+        
 		dataService.getPortfolioDetails(workId).then(function (response) {
 			$scope['SelectedWorkData'] = response.data;
 		});
@@ -168,12 +109,16 @@ app.registerController("/", "Home/Home.html", PortfolioIndexController);
 		$scope['trustHtml'] = function (html) {
 			return $sce.trustAsHtml(html);
 		};
+		$scope.getYouTubeLink = function (videoId) {
+		    return 'https://www.youtube.com/embed/' + videoId;
+		};
+
 		//
 	}
 //	return PortfolioDetailController;
 //})();
 //Register controller
-app.registerController("/Portfolio/:id", "Home/WorkDetail.html", PortfolioDetailController);
+app.registerController("/Portfolio/:id", "Detail.html", PortfolioDetailController);
 
 //var AboutController = (function () {
     function AboutController($scope) {
@@ -182,7 +127,7 @@ app.registerController("/Portfolio/:id", "Home/WorkDetail.html", PortfolioDetail
 //    return AboutController;
 //})();
 
-app.registerController("/About", "Home/About.html", AboutController);
+app.registerController("/About", "About.html", AboutController);
 
 /*
  * Menu Controller
