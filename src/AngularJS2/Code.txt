@@ -1,0 +1,24 @@
+Routing
+//app.js
+app.registerController("/Portfolio/:id", "Detail.html", PortfolioDetailController);
+
+Adding details
+<!--Detail.html-->
+<hr />
+<div class="row">
+    <h4 ng-show="SelectedWorkData.Context">Context</h4>
+    <div ng-bind-html="trustHtml(SelectedWorkData.Context)" />
+
+    <h4 ng-show="SelectedWorkData.Approach">Approach</h4>
+    <div ng-bind-html="trustHtml(SelectedWorkData.Approach)" />
+
+    <h4 ng-show="SelectedWorkData.Process">Process</h4>
+
+    <h4 ng-show="SelectedWorkData.Challenges">Challenges</h4>
+    <div ng-bind-html="trustHtml(SelectedWorkData.Challenges)" />
+
+    <h4 ng-show="SelectedWorkData.Design">Final Design</h4>
+    <div ng-bind-html="trustHtml(SelectedWorkData.Design)" />
+
+    <img ng-src="{{SelectedWorkData.EndProjectImage}}" />
+</div>

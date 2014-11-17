@@ -1,0 +1,18 @@
+<!-- Make it dynamic! Home.html -->
+
+<ul>
+    <li ng-repeat="work in Works"><a ng-href="/#/Portfolio/{{work.URI}}">{{work.Title}}</li>
+</ul>
+
+<!-- Make it into something cooler Home.html -->
+
+<div class="medium-6 columns item" ng-repeat="work in Works">
+    <a ng-href="/#/Portfolio/{{work.URI}}">
+        <h2>{{work.Title}}</h2>
+                        
+    </a>
+</div>
+
+<!--Add image Home.html-->
+
+<img ng-src="{{work.IndexImage}}" ng-show="work.IndexImage" />
