@@ -2,12 +2,7 @@
     <div class="medium-12 columns">
         <div id="container">
             <div class="row">
-                <select ng-model="selectedTag" ng-options="tag for tag in tags">
-                    <option value>-- All --</option>
-                </select>
-            </div>
-            <div class="row">
-                <div class="medium-6 columns item" ng-repeat="work in Works | filter : {Tag : selectedTag ||undefined}">
+                <div class="medium-6 columns item" ng-repeat="work in Works">
                     <!--<span class="tags"><a ng-repeat="tag in linkItem.tags" ng-href="/#/Work/Tag/{{tag}}">{{tag}}</a> </span>-->
                     <a ng-href="/#/Portfolio/{{work.URI}}">
                         <h2>{{work.Title}}</h2>

@@ -1,10 +1,4 @@
 ﻿<div class="row">
-    <div class="medium-12 columns">
-        <label class="left">Show details? </label> <input type="checkbox" ng-model="ShowDetails" />
-    </div>
-</div>
-
-<div class="row">
     <div class="medium-9 columns">
         <span class="tags"><a ng-repeat="tag in SelectedWorkData.Tags" ng-href="/#/Work/Tag/{{tag}}">{{tag}}</a> </span>
         <h2>{{SelectedWorkData.Title}}</h2>
@@ -28,7 +22,7 @@
             </div>
         </div>
         <hr/>
-        <div class="row" ng-show="ShowDetails">
+        <div class="row">
             <div class="workItemWrapper">
                 <div class="workItem">
                     <h4 ng-show="SelectedWorkData.Context">Context</h4>

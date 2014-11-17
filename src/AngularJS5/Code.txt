@@ -1,0 +1,30 @@
+Interaction #1
+
+//App.js PortfolioDetailsController
+$scope['ShowDetails'] = false; 
+
+<!--Detail.html-->
+<div class="row">
+    <div class="medium-12 columns">
+        <label class="left">Show details? </label> <input type="checkbox" ng-model="ShowDetails" />
+    </div>
+</div> 
+
+<!--Detail.html details area-->
+ng-show="ShowDetails"
+
+Interaction #2
+
+//App.js PortfolioIndexController
+$scope['selectedTag'] = undefined;
+$scope['tags'] = ["Design", "UX", "Game", "Hardware"];
+
+<!--Home.html -->
+<div class="row">
+	<select ng-model="selectedTag" ng-options="tag for tag in tags">
+		<option value>-- All --</option>
+	</select>
+</div>
+
+<!--Home.html in repeater-->
+ng-repeat="work in Works | filter : {Tag : selectedTag ||undefined}"

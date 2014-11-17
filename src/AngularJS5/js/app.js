@@ -77,9 +77,6 @@ function PortfolioIndexController($scope, $sce, dataService) {
 		var works = request.data.Works;
 		$scope['Works'] = works;
 	});
-
-	$scope['selectedTag'] = undefined;
-	$scope['tags'] = ["Design", "UX", "Game", "Hardware"];
 }
 	
 //Register controller
@@ -109,8 +106,6 @@ function PortfolioDetailController($scope, $sce, $routeParams, dataService) {
 	$scope.getYouTubeLink = function (videoId) {
 		return 'https://www.youtube.com/embed/' + videoId;
 	};
-
-	$scope['ShowDetails'] = false;
 }
 //Register controller
 app.registerController("/Portfolio/:id", "Detail.html", PortfolioDetailController);
