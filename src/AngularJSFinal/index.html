@@ -17,25 +17,25 @@
                     <a class="left-off-canvas-toggle menu-icon"><span></span></a>
                 </section>
                 <section class="middle tab-bar-section">
-                    <h1 class="title">Oswald Cobblepot</h1>
+                    <h1 class="title">Tony Stark</h1>
                 </section>
             </nav>
             <header class="row" ng-controller="MenuController">
                 <div class="medium-12 columns">
                     <div class="row">
                         <div class="small-3 medium-8 columns">
-                            <h1><a href="/">Oswald Cobblepot</a></h1>
+                            <h1><a href="/">Tony Stark</a></h1>
                         </div>
                         <div class="small-5 medium-4 columns">
                             <nav class="right">
                                 <ul class="inline-list">
-                                    <li><a ng-class="getMenuLinkClass('/Work')" href="/">Work</a></li>
-                                    <li><a ng-class="getMenuLinkClass('/About')" href="/#About">About Me</a></li>
+                                    <li><a href="/">Work</a></li>
+                                    <li><a href="/#About">About Me</a></li>
                                     <li>
                                         <a href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="dropdown">Contact</a>
                                         <ul id="drop1" data-dropdown-content class="f-dropdown" aria-hidden="true" tabindex="-1">
                                             <li>
-                                                <span><a ng-show="emailAddress" ng-href="mailto:{{emailAddress}}">Send email</a></span>
+                                                <span><a href="mailto:myemail@mydomain.com">Email me!</a></span>
                                             </li>
                                         </ul>
                                     </li>
@@ -44,16 +44,20 @@
                         </div>
                     </div>
                 </div>
-                <div class="header-end row">
+                <div class="row">
                     <div class="medium-12 columns">
                         <hr />
-                        <div id="tagLine">I am an MHCI major doing really cool stuff.</div>
-                        <hr/>
+                        <div class="row">
+                            <div class="medium-12 columns">
+                                <div id="tagLine">I am a GENIUS, BILLIONAIRE, PLAYBOY, PHILANTHROPIST.</div>
+                            </div>
+                        </div>
+                        <hr />
                     </div>
                 </div>
             </header>
             <div class="row">
-                <div class="medium-12 columns main">
+                <div class="medium-12 columns">
                     <ng-view ng-cloak></ng-view>
                 </div>
             </div>
@@ -67,7 +71,7 @@
                     </div>
                     <div class="large-4 columns">
                         <ul class="inline-list">
-                            <li>&copy Oswald Cobblepot 2014</li>
+                            <li>&copy Tony Stark 2014</li>
                         </ul>
                     </div>
                 </div>

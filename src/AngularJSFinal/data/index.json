@@ -1,7 +1,7 @@
 ﻿{
     "Works": [
         {
-            "Title": "Redesigning Programming",
+            "Title": "Plan for Nerd Domination",
             "Caption": "UCRE final project to solve HCI related issues with the current 15-213 work process.",
             "URI": "UCRE",
             "CreatedDate": "2012-05-01T01:07:56.433Z",
@@ -17,7 +17,7 @@
             "Done" :  "Yes"
         },
         {
-            "Title": "EMT",
+            "Title": "Tony's Angels",
             "Caption": "IxDF final project.",
             "URI": "Ixdf",
             "CreatedDate": "2011-09-01T01:07:56.433Z",
@@ -25,7 +25,7 @@
             "Done" :  "Yes"
         },
         {
-            "Title": "Defense Turret for the Handicapped",
+            "Title": "Turrets for the Handicapped",
             "Caption": "Applied Fabrication final project.",
             "URI": "Fab",
             "CreatedDate": "2011-05-01T01:07:56.433Z",

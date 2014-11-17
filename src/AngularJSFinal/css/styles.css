@@ -7,22 +7,22 @@ a{
 	a:hover{
 		color: #F00;}
 
-header{
-
-}
+header{}
     header nav li{
-        margin-top: 2em;
-    }
-	.header-end{
-        height: 5em;}
-        .header-end hr{
-            border: none;
-            border: solid #ccc 1px;
-            }
-        #tagLine {
-            
-        }
+        margin-top: 2em;}
 
 	h1{
-		
 	}
+    #tagLine {
+        margin-left: 1.2em;
+    }
+
+.item {
+    min-height: 300px;
+    margin-bottom: 1em;}
+    .item:hover {
+        background-color: #eee;
+        color: red;
+    }
+    h2 {
+        line-height: 1em;}
