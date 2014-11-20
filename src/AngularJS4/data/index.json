@@ -1,0 +1,36 @@
+﻿{
+    "Works": [
+        {
+            "Title": "Plan for Nerd Domination",
+            "Caption": "UCRE final project to solve HCI related issues with the current 15-213 work process.",
+            "URI": "UCRE",
+            "CreatedDate": "2012-05-01T01:07:56.433Z",
+            "IndexImage": "https://c1.staticflickr.com/7/6172/6266766746_d58ddabe34_z.jpg",
+            "Tag" :  "UX"
+        },
+        {
+            "Title": "The Soldier Game",
+            "Caption": "GUI Lab final project.",
+            "URI": "GUI",
+            "CreatedDate": "2012-12-01T01:07:56.433Z",
+            "IndexImage": "http://www.wallpaperswala.com/wp-content/gallery/halo-wars/halo-wars-game.jpg",
+            "Tag" :  "Game"
+        },
+        {
+            "Title": "Tony's Angels",
+            "Caption": "IxDF final project.",
+            "URI": "Ixdf",
+            "CreatedDate": "2011-09-01T01:07:56.433Z",
+            "IndexImage": "http://images5.fanpop.com/image/photos/26200000/Scrubs-scrubs-26262222-1200-1043.jpg",
+            "Tag" :  "Design"
+        },
+        {
+            "Title": "Turrets for the Handicapped",
+            "Caption": "Applied Fabrication final project.",
+            "URI": "Fab",
+            "CreatedDate": "2011-05-01T01:07:56.433Z",
+            "IndexImage": "http://jpthedesigner.com/wp-content/uploads/2012/04/portal3.jpeg",
+            "Tag" :  "Hardware"
+        }
+    ]
+}
